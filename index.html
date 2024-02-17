@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <style>
+        .choice-btn {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        // TODO: Add code to check answers to questions
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <!-- TODO: Add multiple choice question here -->
+            <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+            <div id="tip"></div>
+            <div>
+                <button class="choice-btn">6 people per 1 sheep</button>
+                <button class="choice-btn">3 people per 1 sheep</button>
+                <button class="choice-btn">1 people per 1 sheep</button>
+                <button class="choice-btn">1 people per 3 sheep</button>
+                <button class="choice-btn">1 people per 6 sheep</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <!-- TODO: Add free response question here -->
+            <h3>In which country is it illegal to own only one guinea pig,as a lone guinea pig might get lonely ?
+            </h3>
+            <div id="tip2"></div>
+            <div>
+                <input class="input-text" />
+                <button class="answer">Check Answer</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btns = document.querySelectorAll(".choice-btn")
+
+        btns.forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
+
+                const tip = document.querySelector("#tip");
+
+                btns.forEach(function (btn) {
+                    btn.style.color = 'black'
+                })
+
+
+                console.log(e.target.innerText)
+                const dom = e.target
+                if (dom.innerText == "3 people per 1 sheep") {
+                    dom.style.color = "green"
+                    tip.innerText = "correct"
+                } else {
+                    dom.style.color = "red"
+                    tip.innerText = "incorrect"
+                }
+
+
+            })
+        })
+
+        const answer = document.querySelector(".answer")
+        answer.addEventListener("click", function (e) {
+
+            const tip2 = document.querySelector("#tip2");
+            const dom = document.querySelector(".input-text")
+            const value = dom.value
+
+            if (value == "小东心王国") {
+                dom.style.color = "green"
+                tip2.innerText = "correct"
+            } else {
+                dom.style.color = "red"
+                tip2.innerText = "incorrect"
+            }
+
+        })
+    </script>
+</body>
+
+</html>
